@@ -1,0 +1,57 @@
+//TrainInherit.java
+package inherit;
+
+public class TrainInherit {
+	String name;
+	public void setName(String newName){
+		name=newName;
+	}
+	public String getName(){
+		return name;
+	}
+}
+
+
+
+
+//Students.java
+package inherit;
+
+public class Students extends TrainInherit {
+	String department;
+	public void setDepartment(String newDepartment){
+		department=newDepartment;
+	}
+	public String getDepartment(){
+		return department;
+	}
+}
+
+
+
+//Test.java
+package inherit;
+
+import java.util.Scanner;
+
+public class Test {
+
+	public static void main(String[] args) {
+		//TrainInherit student1=new Students();student1是student的上转型，
+		//上转型损失的是子类新增的变量和方法，这里不宜用上转型
+		//得：上转型对象可以操作和使用子类继承或者重写的方法。
+		//失：上转型对象丧失了对子类新增成员变量或新增的方法的操作和使用。
+		Students student1=new Students();
+		Scanner scanf=new Scanner(System.in);
+		System.out.println("请输入您的姓名:");
+		String name=scanf.nextLine();
+		System.out.println("请输入您所在的系别：");
+		String department=scanf.nextLine();
+		student1.setName(name);
+		student1.setDepartment(department);
+		System.out.println("你好，我是"+student1.getName()+"\n"+"我是"+student1.getDepartment()+"的学生");
+		
+
+	}
+
+}
