@@ -1,0 +1,59 @@
+import java.util.Scanner;
+//方法一，递归的方法
+public class Huiwen {
+
+	public static int isHuiwen(int low,int height,char[] array_ch,int length){
+		if(length==0||length==1)
+			return 1;
+		if(array_ch[low]!=array_ch[height])
+			return 0;
+		length=length-2;
+		return isHuiwen(low++,height--,array_ch,length);
+	}
+	public static void main(String[] args) {
+		
+   Scanner scanf=new Scanner(System.in);
+   System.out.println("Please enter a letter:");
+   String letter=scanf.nextLine();
+   int length=letter.length();
+   int low=0,height=length-1;
+   char[] arrayto_ch=letter.toCharArray();
+   if(isHuiwen(low,height,arrayto_ch,length)==1)
+	   System.out.println("is a huiwen number");
+   else
+	   System.out.println("isn't a huiwen number");
+   
+	}
+
+}
+//方法二
+import java.util.Scanner;
+
+public class Huiwen2 {
+
+	public static void main(String[] args) {
+	
+    Scanner scanf=new Scanner(System.in);
+    System.out.println("Please enter a letter");
+    String letter=scanf.nextLine();
+    char[] array_ch=letter.toCharArray();
+    boolean isHuiwen=true;
+    int low=0,height=array_ch.length-1;
+    int length=array_ch.length;
+    System.out.println("length="+length);
+    while(length>1){
+    	if(array_ch[low]!=array_ch[height]){
+    		isHuiwen=false;
+    		System.out.println(letter+" isn't a Huiwen letter");
+    		break;
+    	}
+    		
+    	++low;
+    	height--;
+    	length-=2;
+    }
+    if(isHuiwen)
+    	System.out.println(letter+" is a Huiwen letter");
+	}
+
+}
