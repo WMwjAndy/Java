@@ -1,0 +1,13 @@
+package aboutMemory;
+
+public class Memoryc {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       A aa=new A();
+       //new A();在堆中动态分配一块区域，被当做了A对象
+       //aa本身的内存实在栈中分配的，aa指向堆中的内存，aa代表了堆中idea内存
+       
+	}
+
+}
