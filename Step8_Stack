@@ -1,0 +1,36 @@
+package aboutMemory;
+
+import java.util.Scanner;
+import java.util.Stack;
+import java.util.Vector;
+
+public class Memoryc {
+	public void stackpush(Stack st,int para){
+		st.push(para);
+		System.out.println("push("+para+")");
+		System.out.println(st);
+	}
+	public void stackpop(Stack st){
+		System.out.println(st.pop());
+		System.out.println("now st="+st);
+	}
+	
+	public static void main(String[] args) {
+		Stack st=new Stack();
+		Memoryc mm=new Memoryc();
+		mm.stackpush(st, 100);
+		mm.stackpush(st, 101);
+		mm.stackpush(st, 102);
+	    System.out.println("出战");
+	    try{
+	    	 mm.stackpop(st);
+	 	    mm.stackpop(st);
+	 	    mm.stackpop(st);
+	 	    mm.stackpop(st);
+	    }catch(Exception e){
+	    	System.out.println(e.toString());
+	    }
+	   
+	}
+
+}
