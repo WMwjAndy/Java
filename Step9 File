@@ -1,0 +1,34 @@
+package aboutMemory;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.Stack;
+import java.util.Vector;
+
+public class Memoryc {
+	
+	
+	public static void main(String[] args) {
+		File fileName=new File("myFile.txt");
+	    try {
+			fileName.createNewFile();//创建新文件
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("Is the File exists?"+fileName.exists());
+		System.out.println("FileName="+fileName.getName());
+		System.out.println("FilePath:"+fileName.getPath());
+		System.out.println("abslutlyPath:"+fileName.getAbsolutePath());
+		System.out.println("can Execute: "+fileName.canExecute());
+		System.out.println("can Read: "+fileName.canRead());
+		System.out.println("can Write: "+fileName.canWrite());
+		System.out.println("length="+fileName.length());
+		System.out.println("ParentsPath: "+fileName.getParent());
+		System.out.println("is the file?"+fileName.isFile());
+		System.out.println("is the Directory: "+fileName.isDirectory());
+		
+	}
+
+}
