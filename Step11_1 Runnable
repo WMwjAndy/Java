@@ -1,0 +1,43 @@
+package aboutMemory;
+/*
+ @author:Chenwc
+ time:2017/05/04
+ */
+public class RunnableTest implements Runnable {
+	int i=6;
+@Override
+public void run() {
+	
+	while(i>0){
+		System.out.println(Thread.currentThread().getName()+"运行中");
+		--i;
+	}
+}
+public static void main(String[] args){
+	   RunnableTest runnableTest=new RunnableTest();
+	   Thread threada=new Thread(runnableTest, "线程1");
+	   Thread threadb=new Thread(runnableTest, "线程2");
+	   Thread threadc=new Thread(runnableTest, "线程3");
+	System.out.println("开始："+Thread.currentThread().getName());
+	threada.start();
+	System.out.println("开始："+Thread.currentThread().getName());
+	 threadb.start();
+	System.out.println("开始："+Thread.currentThread().getName());
+	 threadc.start();
+}
+    
+}
+//---------------------------------------------------------------------------------//
+/*Result:
+开始：main
+开始：main
+线程1运行中
+开始：main
+线程2运行中
+线程1运行中
+线程1运行中
+线程1运行中
+线程1运行中
+线程2运行中
+*/
+//结果是随机的进程中谁先占取进程谁就先运行
